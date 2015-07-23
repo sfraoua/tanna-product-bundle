@@ -1,6 +1,6 @@
 <?php
 
-namespace Tanna\ProductBundle\ProductBundle\Controller;
+namespace Tanna\ProductBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
