@@ -25,5 +25,8 @@
       "sensio/distribution-bundle": "~4.0",
       "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
       "incenteev/composer-parameter-handler": "~2.0"
+    },
+    "autoload": {
+      "psr-4": { "Tanna\\ProductBundle\\": "" }
     }
 }
