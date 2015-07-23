@@ -1,6 +1,6 @@
 {
   "name": "tanna/product-bundle",
-  "description": "description_text",
+  "description": "Simple Product Management for eshop",
   "minimum-stability": "stable",
   "homepage": "https://github.com/sfraoua/tanna-product-bundle",
   "license": "MIT",
