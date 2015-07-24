@@ -15,17 +15,17 @@ class TannaProductBundle extends Bundle
 
         $symfonyVersion = class_exists('Symfony\Bridge\Doctrine\DependencyInjection\CompilerPass\RegisterMappingsPass');
         $mappings = array(
-            realpath(__DIR__ . '/Resources/config/doctrine-mapping') => 'Tanna\ProductBundle\ProductBundle\Model',
+            realpath(__DIR__ . '/Resources/config/doctrine-mapping') => 'Tanna\ProductBundle\Model',
         );
 
         if ($symfonyVersion && class_exists('Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass')) {
-            $container->addCompilerPass(DoctrineOrmMappingsPass::createXmlMappingDriver($mappings, array('fos_user.model_manager_name'), 'fos_user.backend_type_orm'));
+            $container->addCompilerPass(DoctrineOrmMappingsPass::createXmlMappingDriver($mappings));
         } else {
             $container->addCompilerPass(RegisterMappingsPass::createOrmMappingDriver($mappings));
         }
 
         if ($symfonyVersion && class_exists('Doctrine\Bundle\MongoDBBundle\DependencyInjection\Compiler\DoctrineMongoDBMappingsPass')) {
-            $container->addCompilerPass(DoctrineMongoDBMappingsPass::createXmlMappingDriver($mappings, array('fos_user.model_manager_name'), 'fos_user.backend_type_mongodb'));
+            $container->addCompilerPass(DoctrineMongoDBMappingsPass::createXmlMappingDriver($mappings, array()));
         } else {
             $container->addCompilerPass(RegisterMappingsPass::createMongoDBMappingDriver($mappings));
         }

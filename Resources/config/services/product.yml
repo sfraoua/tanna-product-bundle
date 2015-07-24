@@ -1,0 +1,4 @@
+#services:
+#    tanna_product.product_manager:
+#        class: Tanna\ProductBundle\Manager\ProductManager
+#        arguments: []

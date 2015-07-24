@@ -18,11 +18,14 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('product');
-
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode = $treeBuilder->root('tanna_product');
+        $rootNode->children()
+            ->scalarNode('db_driver')
+                ->isRequired()
+                ->validate()
+                ->ifNotInArray(array('orm', 'mongodb'))
+                    ->thenInvalid('Invalid database driver "%s"')
+            ->end();
 
         return $treeBuilder;
     }

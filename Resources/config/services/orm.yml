@@ -1,0 +1,12 @@
+parameters:
+    tanna_product.product_manager.class: Tanna\ProductBundle\Manager\ProductManager
+
+services:
+    tanna_product.entity_manager:
+        class: Doctrine\ORM\EntityManager
+        public: false
+
+    tanna_product.product_manager:
+        class: %tanna_product.product_manager.class%
+        arguments: [%tanna_product.entity_manager]
+        public: false

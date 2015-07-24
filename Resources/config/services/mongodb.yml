@@ -1,0 +1,4 @@
+services:
+    tanna_product.document_manager:
+        class: Doctrine\ODM\MongoDB\DocumentManager
+        public: false
