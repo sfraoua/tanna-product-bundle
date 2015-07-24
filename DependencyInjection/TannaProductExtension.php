@@ -27,6 +27,7 @@ class TannaProductExtension extends Extension
         //load services
         $loader->load(sprintf('%s.yml', $config['db_driver']));
         $loader->load('product.yml');
+
     }
 
     public function getAlias()

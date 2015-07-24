@@ -1,4 +1,5 @@
-#services:
-#    tanna_product.product_manager:
-#        class: Tanna\ProductBundle\Manager\ProductManager
-#        arguments: []
+services:
+    tanna_product.form.type.product:
+        class: Tanna\ProductBundle\Form\Type\ProductType
+        tags:
+            - { name: form.type, alias: tanna_product.form.product }

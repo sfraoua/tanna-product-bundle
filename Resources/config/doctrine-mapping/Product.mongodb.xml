@@ -6,7 +6,8 @@
 
     <mapped-superclass name="Tanna\ProductBundle\Model\Product" collection="tanna_product">
 
-        <field fieldName="id" id="true" />
+        <field fieldName="id" id="true" strategy="INCREMENT"/>
+
         <field name="nameCanonical" fieldName="nameCanonical" type="string" />
         <field name="name" fieldName="name" type="string" />
 
