@@ -23,6 +23,9 @@ class TannaProductExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
+        //declaring user classes as parameters
+        $container->setParameter('tanna_product.user_classes.product', $config['class']['product']);
+
 
         //load services
         $loader->load(sprintf('%s.yml', $config['db_driver']));

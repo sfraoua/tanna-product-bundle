@@ -27,9 +27,9 @@ class TannaProductBundle extends Bundle
             $container->addCompilerPass(
                 DoctrineMongoDBMappingsPass::createXmlMappingDriver(
                     $mappings,
-                    array(),
+                    array('%tanna_product.document_manager%'),
                     null,
-                    array("Tanna/ProductBundle"=> "")
+                    array("TannaProductBundle"=>"Tanna\\ProductBundle\\Model")
                 )
             );
 

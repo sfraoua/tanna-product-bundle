@@ -1,5 +1,32 @@
+parameters:
+    tanna_product.product.type.class: Tanna\ProductBundle\Form\Type\ProductType
+    tanna_product.product_handler.class: Tanna\ProductBundle\Form\Handler\ProductHandler
+    tanna_product.product_manager.class: Tanna\ProductBundle\Manager\ProductManager
+
+    symfony.form.class: Symfony\Component\Form\Form
+
 services:
-    tanna_product.form.type.product:
-        class: Tanna\ProductBundle\Form\Type\ProductType
+    #Manager
+    tanna_product.product_manager:
+            class: %tanna_product.product_manager.class%
+            arguments: [@tanna_product.doctrine.object_manager, %tanna_product.user_classes.product%]
+            public: false
+
+    tanna_product.product_form:
+        factory_service: form.factory
+        factory_method: createNamed
+        class: %symfony.form.class%
+        arguments:
+            - product
+            - tanna_product_product
+
+    tanna_product.product_type:
+        class: %tanna_product.product.type.class%
+        arguments: [%tanna_product.user_classes.product%]
         tags:
-            - { name: form.type, alias: tanna_product.form.product }
+            - { name: form.type, alias: tanna_product_product }
+
+    tanna_product.product_handler:
+        class: %tanna_product.product_handler.class%
+        arguments: [@request, @tanna_product.product_form, @tanna_product.product_manager]
+        scope: request

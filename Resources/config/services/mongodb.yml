@@ -1,4 +1,2 @@
 services:
-    tanna_product.document_manager:
-        class: Doctrine\ODM\MongoDB\DocumentManager
-        public: false
+    tanna_product.doctrine.object_manager: '@doctrine.odm.mongodb.document_manager'

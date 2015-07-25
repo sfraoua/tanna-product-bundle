@@ -8,12 +8,21 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ProductType extends AbstractType
 {
+    private $class;
+
+    /**
+     * @param string $class The user Product class name
+     */
+    public function __construct($class)
+    {
+        $this->class = $class;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name');
         $builder->add('nameCanonical');
         $builder->add('Send', 'submit');
-
     }
 
     /**
@@ -23,12 +32,12 @@ class ProductType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Tanna\ProductBundle\Model\Product',
+            'data_class' => $this->class,
         ));
     }
 
     public function getName()
     {
-        return 'tanna_product.form.product';
+        return 'tanna_product_product';
     }
 }

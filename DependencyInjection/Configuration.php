@@ -19,12 +19,24 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('tanna_product');
-        $rootNode->children()
-            ->scalarNode('db_driver')
-                ->isRequired()
-                ->validate()
-                ->ifNotInArray(array('orm', 'mongodb'))
+        $rootNode
+            ->children()
+                ->scalarNode('db_driver')
+                    ->isRequired()
+                    ->validate()
+                    ->ifNotInArray(array('orm', 'mongodb'))
                     ->thenInvalid('Invalid database driver "%s"')
+                ->end()
+            ->end();
+
+        $rootNode
+            ->children()
+                ->arrayNode('class')
+                ->isRequired()
+                    ->children()
+                        ->scalarNode('product')->isRequired()->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;
