@@ -32,4 +32,6 @@ In your app/config/config.yml add the following lines
 # app/config/config.yml
 tanna_product:
     db_driver: orm # Valid values are 'orm' or 'mongodb'
+    class:
+        product: YourProject/Entity/YourProductEntity
 ```
