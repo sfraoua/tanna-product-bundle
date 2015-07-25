@@ -22,14 +22,13 @@ class TannaProductBundle extends Bundle
 //        if ($symfonyVersion && class_exists('Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass')) {
 //            $container->addCompilerPass(DoctrineOrmMappingsPass::createXmlMappingDriver($mappings));
 //        }
-
         if ($symfonyVersion && class_exists('Doctrine\Bundle\MongoDBBundle\DependencyInjection\Compiler\DoctrineMongoDBMappingsPass')) {
             $container->addCompilerPass(
                 DoctrineMongoDBMappingsPass::createXmlMappingDriver(
                     $mappings,
-                    array('%tanna_product.document_manager%'),
+                    array(),
                     null,
-                    array("TannaProductBundle"=>"Tanna\\ProductBundle\\Model")
+                    array("Tanna\\ProductBundle"=> "")
                 )
             );
 
