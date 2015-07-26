@@ -8,8 +8,9 @@
 
 
         <field name="name" column="name" type="string" length="255" />
+        <field name="slug" column="slug" type="string" length="255" unique="true" />
+        <field name="price" column="price" type="float" />
 
-        <field name="nameCanonical" column="name_canonical" type="string" length="255" unique="true" />
 
     </mapped-superclass>
 

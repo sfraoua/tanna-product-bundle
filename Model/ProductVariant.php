@@ -1,42 +1,32 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Selim Fraoua
- *
- * Date: 24/07/15
- * Time: 02:50
+ * User: liya
+ * Date: 26/07/15
+ * Time: 01:47
  */
 
 namespace Tanna\ProductBundle\Model;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 
 
-/**
- * Storage agnostic user object
- *
- * @author Selim Fraoua <sfraoua@gmail.com>
- */
-
-abstract class Product implements ProductInterface
+abstract class ProductVariant implements ProductVariantInterface
 {
     protected $name;
     protected $slug;
     protected $title;
     protected $metaDescription;
-    protected $price;
+    protected $extraPrice;
     protected $isActive;
     protected $isDeleted;
     protected $createdAt;
     protected $updatedAt;
     protected $deletedAt;
 
-    protected $variants;
+    protected $parentProduct;
 
 
-    public function __construct(){
-        $this->variants = new ArrayCollection();
-    }
+
+
     /**
      * Set name for entity (like product)
      *
@@ -116,6 +106,28 @@ abstract class Product implements ProductInterface
     {
         return $metaDescription;
     }
+
+    /**
+     * Add float (can be negative) for editing parent product price
+     *
+     *
+     * @param float $product
+     */
+    public function setExtraPrice($price)
+    {
+        $this->extraPrice = $price;
+    }
+
+    /**
+     * Return product variant extra price
+     *
+     * @return ProductInterface
+     */
+    public function getExtraPrice()
+    {
+        return $this->extraPrice;
+    }
+
 
     /**
      * Check if product or a product variant is available
@@ -216,13 +228,34 @@ abstract class Product implements ProductInterface
     }
 
     /**
+     * Set the parent product for this variant
+     *
+     * @param ProductInterface $product
+     */
+    public function setParentProduct(ProductInterface $product)
+    {
+        $this->parentProduct = $product;
+    }
+
+    /**
+     * Return the parent product
+     *
+     * @return ProductInterface
+     */
+    public function getParentProduct()
+    {
+        return $this->parentProduct;
+    }
+
+
+    /**
      * return a product or product variant price
      *
      * @return float
      */
     public function getPrice()
     {
-        return $this->price;
+        return $this->price + $this->parentProduct->getPrice();
     }
 
     /**
@@ -232,59 +265,6 @@ abstract class Product implements ProductInterface
      */
     public function setPrice($price)
     {
-        $this->price = $price;
     }
-
-    /**
-     * Return if exists, product variants
-     *
-     * @return null | Collection
-     */
-    public function getVariants()
-    {
-        return $this->variants;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setVariants(Collection $variants)
-    {
-        foreach ($variants as $variant) {
-            $this->addVariant($variant);
-        }
-        return $this;
-    }
-    /**
-     * {@inheritdoc}
-     */
-    public function addVariant(ProductVariantInterface $variant)
-    {
-        if (!$this->hasVariant($variant)) {
-            $variant->setParentProduct($this);
-            $this->variants->add($variant);
-        }
-        return $this;
-    }
-    /**
-     * {@inheritdoc}
-     */
-    public function removeVariant(ProductVariantInterface $variant)
-    {
-        if ($this->hasVariant($variant)) {
-            $this->variants->removeElement($variant);
-            $variant->setParentProduct(null);
-        }
-        return $this;
-    }
-    /**
-     * {@inheritdoc}
-     */
-    public function hasVariant(ProductVariantInterface $variant)
-    {
-        return $this->variants->contains($variant);
-    }
-
-
 
 }

@@ -4,7 +4,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <mapped-superclass name="Tanna\ProductBundle\Model\Product" collection="tanna_product">
+    <mapped-superclass name="Tanna\ProductBundle\Model\ProductVariant" collection="tanna_product">
 
         <field fieldName="id" id="true" strategy="INCREMENT"/>
 
@@ -12,11 +12,11 @@
         <field name="slug" fieldName="slug" type="string" />
         <field name="price" fieldName="price" type="float" />
 
-        <reference-many field="variants" target-document="Tanna\ProductBundle\Model\ProductVariantInterface" inversed-by="parentProduct" >
+        <reference-one field="parentProduct" target-document="Tanna\ProductBundle\Model\Product" mapped-by="variants" >
             <cascade>
                 <all />
             </cascade>
-        </reference-many>
+        </reference-one>
         <!--<indexes>-->
             <!--<index>-->
                 <!--<key name="name" order="asc" />-->
