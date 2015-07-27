@@ -6,7 +6,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
-class ProductType extends AbstractType
+class ProductVariantType extends AbstractType
 {
     private $class;
 
@@ -38,6 +38,6 @@ class ProductType extends AbstractType
 
     public function getName()
     {
-        return 'tanna_product_product';
+        return 'tanna_product_product_variant';
     }
 }

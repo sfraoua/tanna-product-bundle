@@ -6,7 +6,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 use Tanna\ProductBundle\Manager\ManagerInterface;
 
-class ProductManager implements ManagerInterface {
+class ProductVariantManager implements ManagerInterface {
 
     private $om;
     private $repository;
@@ -14,10 +14,6 @@ class ProductManager implements ManagerInterface {
     public function __construct(ObjectManager $om,  $className){
         $this->om = $om;
         $this->repository = $om->getRepository($className);
-    }
-
-    public function getAll(){
-        return $this->repository->findAll();
     }
 
     public function doFlush($product)

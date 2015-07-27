@@ -2,8 +2,11 @@
 
 namespace Tanna\ProductBundle\DependencyInjection;
 
+use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ORM\Events;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
@@ -25,6 +28,8 @@ class TannaProductExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
         //declaring user classes as parameters
         $container->setParameter('tanna_product.user_classes.product', $config['class']['product']);
+        $container->setParameter('tanna_product.user_classes.product_variant', $config['class']['product_variant']);
+        $container->setParameter('tanna_product.db_driver', $config['db_driver']);
 
 
         //load services
@@ -32,6 +37,7 @@ class TannaProductExtension extends Extension
         $loader->load('product.yml');
 
     }
+
 
     public function getAlias()
     {

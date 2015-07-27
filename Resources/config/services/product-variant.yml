@@ -1,0 +1,32 @@
+parameters:
+    tanna_product.product_variant.type.class: Tanna\ProductBundle\Form\Type\ProductVariantType
+    tanna_product.product_variant_handler.class: Tanna\ProductBundle\Form\Handler\ProductVariantHandler
+    tanna_product.product_variant_manager.class: Tanna\ProductBundle\Manager\ProductVariantManager
+
+    symfony.form.class: Symfony\Component\Form\Form
+
+services:
+    #Manager
+    tanna_productproduct_variant_manager:
+            class: %tanna_product.product_variant_manager.class%
+            arguments: [@tanna_product.doctrine.object_manager, %tanna_product.user_classes.product_variant%]
+            public: false
+
+    tanna_product.product_variant_form:
+        factory_service: form.factory
+        factory_method: createNamed
+        class: %symfony.form.class%
+        arguments:
+            - product_variant
+            - tanna_product_product_variant
+
+    tanna_product.product_variant_type:
+        class: %tanna_product.product_variant.type.class%
+        arguments: [%tanna_product.user_classes.product_variant%]
+        tags:
+            - { name: form.type, alias: tanna_product_product_variant }
+
+    tanna_product.product_variant_handler:
+        class: %tanna_product.product_variant_handler.class%
+        arguments: [@request, @tanna_product.product_variant_form, @tanna_product.product_variant_manager]
+        scope: request

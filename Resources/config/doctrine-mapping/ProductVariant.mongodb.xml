@@ -12,7 +12,7 @@
         <field name="slug" fieldName="slug" type="string" />
         <field name="price" fieldName="price" type="float" />
 
-        <reference-one field="parentProduct" target-document="Tanna\ProductBundle\Model\Product" mapped-by="variants" >
+        <reference-one field="parentProduct" target-document="Tanna\ProductBundle\Model\Product" inversed-by="variants" >
             <cascade>
                 <all />
             </cascade>

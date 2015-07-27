@@ -6,13 +6,13 @@
 
     <class name="Tanna\ProductBundle\Model\Product">
         <constraint name="Doctrine\Bundle\MongoDBBundle\Validator\Constraints\Unique">
-            <option name="fields">nameCanonical</option>
-            <option name="errorPath">name</option>
+            <option name="fields">slug</option>
+            <option name="errorPath">slug</option>
             <option name="message">tanna_product.name.already_used</option>
         </constraint>
 
 
-        <property name="nameCanonical">
+        <property name="slug">
             <constraint name="NotBlank" />
         </property>
     </class>

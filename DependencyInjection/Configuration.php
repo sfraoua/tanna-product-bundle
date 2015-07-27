@@ -35,6 +35,7 @@ class Configuration implements ConfigurationInterface
                 ->isRequired()
                     ->children()
                         ->scalarNode('product')->isRequired()->cannotBeEmpty()->end()
+                        ->scalarNode('product_variant')->isRequired()->cannotBeEmpty()->end()
                     ->end()
                 ->end()
             ->end();

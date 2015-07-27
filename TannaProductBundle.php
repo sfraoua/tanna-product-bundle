@@ -19,9 +19,11 @@ class TannaProductBundle extends Bundle
             realpath(__DIR__ . '/Resources/config/doctrine-mapping') => 'Tanna\ProductBundle\Model',
         );
 
-//        if ($symfonyVersion && class_exists('Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass')) {
-//            $container->addCompilerPass(DoctrineOrmMappingsPass::createXmlMappingDriver($mappings));
-//        }
+        //Doctrine ORM
+
+        if ($symfonyVersion && class_exists('Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass')) {
+            //$container->addCompilerPass(DoctrineOrmMappingsPass::createXmlMappingDriver($mappings));
+        }
         if ($symfonyVersion && class_exists('Doctrine\Bundle\MongoDBBundle\DependencyInjection\Compiler\DoctrineMongoDBMappingsPass')) {
             $container->addCompilerPass(
                 DoctrineMongoDBMappingsPass::createXmlMappingDriver(

@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="Tanna\ProductBundle\Model\Product" table="tanna_product">
+    <mapped-superclass name="Tanna\ProductBundle\Model\Product">
 
 
         <field name="name" column="name" type="string" length="255" />
