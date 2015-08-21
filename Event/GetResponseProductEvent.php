@@ -25,7 +25,7 @@ class GetResponseProductEvent extends ProductEvent
     /**
      * @param mixed $response
      */
-    public function setResponse($response)
+    public function setResponse($response = null)
     {
         $this->response = $response;
     }

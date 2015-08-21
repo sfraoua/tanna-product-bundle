@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class TannaProductExtension extends Extension
+class TannaProductExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * {@inheritdoc}
@@ -38,6 +38,26 @@ class TannaProductExtension extends Extension
 
     }
 
+    /**
+     * Allow an extension to prepend the extension configurations.
+     *
+     * @param ContainerBuilder $container
+     */
+    public function prepend(ContainerBuilder $container)
+    {
+            $configs = $container->getExtensionConfig($this->getAlias());
+            $tannaConfig = $this->processConfiguration(new Configuration(), $configs);
+        if($tannaConfig['db_driver']=='mongodb'){
+            $forInsertion = array(
+                    'resolve_target_documents' => array(
+                        'Tanna\ProductBundle\Model\ProductInterface' => $tannaConfig['class']['product'],
+                        'Tanna\ProductBundle\Model\ProductVariantInterface' => $tannaConfig['class']['product_variant'],
+                    )
+            );
+        }
+        $container->prependExtensionConfig('doctrine_mongodb', $forInsertion);
+
+    }
 
     public function getAlias()
     {

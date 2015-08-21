@@ -6,6 +6,10 @@ parameters:
     symfony.form.class: Symfony\Component\Form\Form
 
 services:
+    #Entity / Document class
+    user_enities.product:
+        class: %tanna_product.user_classes.product%
+
     #Manager
     tanna_product.product_manager:
             class: %tanna_product.product_manager.class%
@@ -17,8 +21,9 @@ services:
         factory_method: createNamed
         class: %symfony.form.class%
         arguments:
-            - product
             - tanna_product_product
+            - tanna_product_product
+            - @user_enities.product
 
     tanna_product.product_type:
         class: %tanna_product.product.type.class%

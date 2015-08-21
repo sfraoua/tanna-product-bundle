@@ -9,7 +9,7 @@ namespace Tanna\ProductBundle\Model;
 
 use Doctrine\Common\Collections\Collection;
 
-interface ProductVariantInterface extends SellableInterface, TimestampableInterface, SlugableInterface, SEOInterface
+interface ProductVariantInterface extends SellableInterface, TracableInterface, SlugableInterface, SEOInterface
 {
 
     /**

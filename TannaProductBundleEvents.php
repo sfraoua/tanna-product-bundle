@@ -17,16 +17,12 @@ final class TannaProductBundleEvents
     const CREATE_PRODUCT_INITIALIZE = 'tanna_product.product.create.initialize';
 
     /**
-     * The CREATE_PRODUCT_SUCCESS event occurs when the form is submitted successfully.
+     * The CREATE_PRODUCT_SUCCESS event occurs when the form is submitted successfully and
+     * after saving the product in the database.
      *
      * This event allows you to set the response instead of using the default one.
      */
     const CREATE_PRODUCT_SUCCESS = 'fos_user.change_password.edit.success';
 
-    /**
-     * The CREATE_PRODUCT_COMPLETED event occurs after saving the product in the database.
-     *
-     */
-    const CREATE_PRODUCT_COMPLETED = 'fos_user.change_password.edit.completed';
 
 }

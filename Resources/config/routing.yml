@@ -1,29 +1,3 @@
-tanna_product_show_all:
-    path:     /products
-    defaults: { _controller: TannaProductBundle:Product:index }
-    requirements:
-            _method:  GET
-
-tanna_product_create:
-    path:     /products/new
-    defaults: { _controller: TannaProductBundle:Product:create }
-    requirements:
-            _method:  POST | GET
-
-tanna_product_show:
-    path:     /products/{id}
-    defaults: { _controller: TannaProductBundle:Product:show }
-    requirements:
-            _method:  GET
-
-tanna_product_update:
-    path:     /products/{id}
-    defaults: { _controller: TannaProductBundle:Product:update }
-    requirements:
-            _method:  PUT
-
-tanna_product_delete:
-    path:     /products/{id}
-    defaults: { _controller: TannaProductBundle:Product:delete }
-    requirements:
-            _method:  DELETE
+tanna_product_routing:
+    resource: "@TannaProductBundle/Resources/config/routing/product.yml"
+    prefix:   /products

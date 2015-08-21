@@ -48,4 +48,19 @@ interface SellableInterface
      */
 
     public function setIsDeleted($isDeleted);
+
+
+    /**
+     * Check if product or a product variant is active
+     *
+     * @return bool
+     */
+    public function isActive();
+
+    /**
+     * Set a product / product variant as active
+     * @param $isDActive bool
+     */
+
+    public function setIsActive($isActive);
 }
