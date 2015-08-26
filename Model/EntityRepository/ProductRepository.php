@@ -4,7 +4,7 @@
  * @author Selim Fraoua <sfraoua@gmail.com>
  */
 
-namespace Tanna\ProductBundle\Model\DocumentRepository;
+namespace Tanna\ProductBundle\Model\EntityRepository;
 
 
 use Doctrine\ORM\EntityRepository;
