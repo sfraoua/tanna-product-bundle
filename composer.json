@@ -16,8 +16,8 @@
     },
     "require-dev": {
       "doctrine/doctrine-bundle": "~1.4",
-      "doctrine/mongodb-odm": "1.0.*@dev",
-      "doctrine/mongodb-odm-bundle": "3.0.*@dev"
+      "symfony/yaml": "~2.3",
+      "symfony/validator": "~2.3"
     },
     "autoload": {
       "psr-4": { "Tanna\\ProductBundle\\": "" }
