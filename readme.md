@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/sfraoua/tanna-product-bundle.svg?branch=master)](https://travis-ci.org/sfraoua/tanna-product-bundle)
