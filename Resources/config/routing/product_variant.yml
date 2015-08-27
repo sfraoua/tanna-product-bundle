@@ -1,0 +1,29 @@
+tanna_product_variant_show_all:
+    path:     /
+    defaults: { _controller: TannaProductBundle:ProductVariant:index }
+    requirements:
+            _method:  GET
+
+tanna_product_variant_create:
+    path:     /create
+    defaults: { _controller: TannaProductBundle:ProductVariant:create }
+    requirements:
+            _method:  POST|GET
+
+tanna_product_variant_show:
+    path:     /{id}
+    defaults: { _controller: TannaProductBundle:ProductVariant:show }
+    requirements:
+            _method:  GET
+
+tanna_product_variant_update:
+    path:     /{id}
+    defaults: { _controller: TannaProductBundle:ProductVariant:update }
+    requirements:
+            _method:  PUT
+
+tanna_product_variant_delete:
+    path:     /{id}
+    defaults: { _controller: TannaProductBundle:ProductVariant:delete }
+    requirements:
+            _method:  DELETE

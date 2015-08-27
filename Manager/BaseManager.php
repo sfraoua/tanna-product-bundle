@@ -3,7 +3,6 @@
 namespace Tanna\ProductBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
-
 use Documents\Product;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Tanna\ProductBundle\Manager\ManagerInterface;
@@ -17,6 +16,10 @@ abstract class BaseManager implements ManagerInterface {
     public function __construct(ObjectManager $om,  $className){
         $this->om = $om;
         $this->repository = $om->getRepository($className);
+    }
+
+    public function get($id){
+        return $this->repository->find($id);
     }
 
     public function getAll(){
