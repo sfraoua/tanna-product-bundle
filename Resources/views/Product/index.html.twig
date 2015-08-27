@@ -1,0 +1,7 @@
+{% extends 'TannaProductBundle::layout.html.twig' %}
+{% block content %}
+{% for product in products %}
+    <li>{{ product.name }} ({{ product.variants | length }} variants) {{ product.id }}</li>
+{% endfor %}
+</ul>
+{% endblock content %}

@@ -14,7 +14,7 @@ class ProductController extends Controller
     {
         $productManager = $this->get('tanna_product.product_manager');
 
-        return $this->render('TannaProductBundle:Default:index.html.twig', array('products'=>$productManager->getAll()));
+        return $this->render('TannaProductBundle:Product:index.html.twig', array('products'=>$productManager->getAll()));
     }
 
     public function createAction(Request $request)
@@ -34,27 +34,28 @@ class ProductController extends Controller
             $dispatcher->dispatch(TannaProductBundleEvents::CREATE_PRODUCT_SUCCESS, $event);
         }
 
-        return $this->render('TannaProductBundle:Default:create.html.twig', array('form'=>$productHandler->getForm()->createView()));
+        return $this->render('TannaProductBundle:Product:create.html.twig', array('form'=>$productHandler->getForm()->createView()));
     }
 
-    public function showAction()
+    public function showAction($id)
     {
-        $productHandler = $this->get('tanna_product.product_handler');
-        $productHandler->process();
-        return $this->render('TannaProductBundle:Default:index.html.twig', array('form'=>$productHandler->getForm()->createView()));
+        //get product
+        $productManager = $this->get('tanna_product.product_manager');
+        $product = $productManager->get($id);
+        return $this->render('TannaProductBundle:Product:show.html.twig', array('product'=>$product));
     }
 
     public function updateAction()
     {
         $productHandler = $this->get('tanna_product.product_handler');
         $productHandler->process();
-        return $this->render('TannaProductBundle:Default:index.html.twig', array('form'=>$productHandler->getForm()->createView()));
+        return $this->render('TannaProductBundle:Product:index.html.twig', array('form'=>$productHandler->getForm()->createView()));
     }
 
     public function deleteAction()
     {
         $productHandler = $this->get('tanna_product.product_handler');
         $productHandler->process();
-        return $this->render('TannaProductBundle:Default:index.html.twig', array('form'=>$productHandler->getForm()->createView()));
+        return $this->render('TannaProductBundle:Product:index.html.twig', array('form'=>$productHandler->getForm()->createView()));
     }
 }

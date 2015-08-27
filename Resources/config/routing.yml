@@ -1,3 +1,7 @@
 tanna_product_routing:
     resource: "@TannaProductBundle/Resources/config/routing/product.yml"
     prefix:   /products
+
+tanna_product_variant_routing:
+    resource: "@TannaProductBundle/Resources/config/routing/product_variant.yml"
+    prefix:   /products/{productId}/variants

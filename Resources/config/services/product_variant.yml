@@ -6,8 +6,10 @@ parameters:
     symfony.form.class: Symfony\Component\Form\Form
 
 services:
+    user_enities.product_variant:
+        class:  %tanna_product.user_classes.product_variant%
     #Manager
-    tanna_productproduct_variant_manager:
+    tanna_product.product_variant_manager:
             class: %tanna_product.product_variant_manager.class%
             arguments: [@tanna_product.doctrine.object_manager, %tanna_product.user_classes.product_variant%]
             public: false
@@ -19,6 +21,7 @@ services:
         arguments:
             - product_variant
             - tanna_product_product_variant
+            - @user_enities.product_variant
 
     tanna_product.product_variant_type:
         class: %tanna_product.product_variant.type.class%
