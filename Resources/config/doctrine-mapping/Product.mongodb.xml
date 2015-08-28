@@ -10,6 +10,8 @@
 
         <field name="nameFr" fieldName="nameFr" type="string"/>
         <field name="nameEn" fieldName="nameEn" type="string"/>
+        <field name="descriptionFr" fieldName="descriptionFr" type="string"/>
+        <field name="descriptionEn" fieldName="descriptionEn" type="string"/>
         <field name="slug" fieldName="slug" type="string" />
         <field name="price" fieldName="price" type="float" />
 
@@ -18,6 +20,7 @@
                 <all />
             </cascade>
         </reference-many>
+
         <!--<indexes>-->
             <!--<index>-->
                 <!--<key name="name" order="asc" />-->

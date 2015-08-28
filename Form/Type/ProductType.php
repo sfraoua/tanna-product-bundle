@@ -22,6 +22,9 @@ class ProductType extends AbstractType
     {
         $builder->add('nameEn', null, ['required'=>false]);
         $builder->add('nameFr', null, ['required'=>false]);
+        $builder->add('descriptionEn');
+        $builder->add('descriptionFr');
+        $builder->add('price');
         $builder->add('Send', 'submit');
     }
 

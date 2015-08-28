@@ -12,6 +12,17 @@
             <option name="message">tanna_product.name.already_used</option>
         </constraint>
 
+        <property name="price">
+            <constraint name="NotBlank"/>
+            <constraint name="Type">
+                <option name="type">float</option>
+                <option name="message">The price {{ value }} is not valid (must be a flaot).</option>
+            </constraint>
+            <constraint name="NotEqualTo">
+                <option name="value">0</option>
+            </constraint>
+        </property>
+
         <property name="slug">
             <constraint name="NotBlank" />
         </property>

@@ -1,7 +1,6 @@
 <?php
 namespace Tanna\ProductBundle\Traits;
 
-use Symfony\Component\Security\Core\User\UserInterface;
 use Tanna\ProductBundle\Validator\Constraints as TannaAssert;
 
 /**
@@ -9,10 +8,12 @@ use Tanna\ProductBundle\Validator\Constraints as TannaAssert;
  *
  * @author Selim Fraoua <sfraoua@gmail.com>
  */
-trait MultiLanguageNameTrait
+trait MultiLanguageTrait
 {
     protected $nameEn;
     protected $nameFr;
+    protected $descriptionFr;
+    protected $descriptionEn;
 
     /**
      * Return entity name
@@ -54,5 +55,45 @@ trait MultiLanguageNameTrait
         $this->nameFr = $nameFr;
     }
 
+
+    /**
+     * Return entity name
+     *
+     * @return string
+     */
+    public function getDescriptionFr()
+    {
+        return $this->descriptionFr;
+    }
+
+    /**
+     * Set name for entity (like product)
+     *
+     * @param $name string
+     */
+    public function setDescriptionFr($descriptionFr)
+    {
+        $this->descriptionFr = $descriptionFr;
+    }
+
+    /**
+     * Return entity name
+     *
+     * @return string
+     */
+    public function getDescriptionEn()
+    {
+        return $this->descriptionEn;
+    }
+
+    /**
+     * Set name for entity (like product)
+     *
+     * @param $name string
+     */
+    public function setDescriptionEn($descriptionEn)
+    {
+        $this->descriptionEn = $descriptionEn;
+    }
 
 }

@@ -10,7 +10,7 @@
 namespace Tanna\ProductBundle\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Tanna\ProductBundle\Traits\MultiLanguageNameTrait;
+use Tanna\ProductBundle\Traits\MultiLanguageTrait;
 use Tanna\ProductBundle\Traits\SellableTrait;
 use Tanna\ProductBundle\Traits\SEOTrait;
 use Tanna\ProductBundle\Traits\SluggableTrait;
@@ -25,7 +25,7 @@ use Tanna\ProductBundle\Traits\TracableTrait;
 
 abstract class Product implements ProductInterface
 {
-    use MultiLanguageNameTrait;
+    use MultiLanguageTrait;
     use SluggableTrait;
     use SEOTrait;
     use TracableTrait;

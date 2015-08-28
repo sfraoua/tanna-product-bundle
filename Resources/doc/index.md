@@ -26,12 +26,43 @@ tanna_product_bundle_routing:
     resource: "@TannaProductBundle/Resources/config/routing.yml"
     prefix:   /
 ```
-##Database config:
+##Creating Entities / Documents
+You must extend the TannaProductBundle Models.
+
+The product entity/document
+```php
+    use Tanna\ProductBundle\Model\Product as BaseProduct;
+    /**
+     * Your entity/document
+     */
+    class Product extends BaseProduct
+    {
+        protected $id;
+    }
+```
+The product variant entity/document
+```php
+    use Tanna\ProductBundle\Model\ProductVariant as BaseProductVariant;
+    /**
+     * Your entity/document
+     */
+    class ProductVariant extends BaseProductVariant
+    {
+        protected $id;
+    }
+```
+
+
+##Configuration:
 In your app/config/config.yml add the following lines
 ```yml
 # app/config/config.yml
 tanna_product:
     db_driver: orm # Valid values are 'orm' or 'mongodb'
+    #Declaring your enities/documents
     class:
         product: YourProject/Entity/YourProductEntity
+        product_variant: YourProject/Entity/YourProductVariantEntity
+        #TannaProductBundle suppose that all crud operations will be made by a logged user.
+        user: YourProject/Entity/YourUserEntity
 ```

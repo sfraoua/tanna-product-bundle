@@ -37,4 +37,32 @@ interface MultiLanguageInterface
      */
     public function getNameEn();
 
+    /**
+     * Set French description
+     *
+     * @param $name string
+     */
+    public function setDescriptionFr($descriptionFr);
+
+    /**
+     * Return entity French description
+     *
+     * @return string
+     */
+    public function getDescriptionFr();
+
+    /**
+     * Return entity English name
+     *
+     * @return string
+     */
+    public function getDescriptionEn();
+
+    /**
+     * Set English description
+     *
+     * @param $name string
+     */
+    public function setDescriptionEn($descriptionEn);
+
 }
