@@ -1,16 +1,16 @@
 <?xml version="1.0" ?>
-<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
-                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<constraint-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xmlns="http://symfony.com/schema/dic/constraint-mapping"
                     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
         http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
     <class name="Tanna\ProductBundle\Model\Product">
+        <constraint name="Tanna\ProductBundle\Validator\Constraints\MultiTitle"></constraint>
         <constraint name="Doctrine\Bundle\MongoDBBundle\Validator\Constraints\Unique">
             <option name="fields">slug</option>
             <option name="errorPath">slug</option>
             <option name="message">tanna_product.name.already_used</option>
         </constraint>
-
 
         <property name="slug">
             <constraint name="NotBlank" />

@@ -9,19 +9,6 @@ namespace Tanna\ProductBundle\Model;
 
 interface SlugableInterface
 {
-    /**
-     * Set name for entity (like product)
-     *
-     * @param $name string
-     */
-    public function setName($name);
-
-    /**
-     * Return entity name
-     *
-     * @return string
-     */
-    public function getName();
 
     /**
      * Set slug for entity

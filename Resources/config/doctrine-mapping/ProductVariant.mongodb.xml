@@ -8,7 +8,8 @@
 
         <field fieldName="id" id="true" strategy="INCREMENT"/>
 
-        <field name="name" fieldName="name" type="string" />
+        <field name="nameFr" fieldName="nameFr" type="string"/>
+        <field name="nameEn" fieldName="nameEn" type="string"/>
         <field name="slug" fieldName="slug" type="string" />
         <field name="extraPrice" fieldName="extraPrice" type="float" />
 

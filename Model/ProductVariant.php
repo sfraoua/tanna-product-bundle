@@ -9,6 +9,7 @@
 namespace Tanna\ProductBundle\Model;
 
 
+use Tanna\ProductBundle\Traits\MultiLanguageNameTrait;
 use Tanna\ProductBundle\Traits\SellableTrait;
 use Tanna\ProductBundle\Traits\SEOTrait;
 use Tanna\ProductBundle\Traits\SluggableTrait;
@@ -16,6 +17,7 @@ use Tanna\ProductBundle\Traits\TracableTrait;
 
 abstract class ProductVariant implements ProductVariantInterface
 {
+    use MultiLanguageNameTrait;
     use SluggableTrait;
     use SEOTrait;
     use TracableTrait;
@@ -24,6 +26,16 @@ abstract class ProductVariant implements ProductVariantInterface
     protected $extraPrice;
 
     protected $parentProduct;
+
+    /**
+     * Return product variant extra price
+     *
+     * @return ProductInterface
+     */
+    public function getExtraPrice()
+    {
+        return $this->extraPrice;
+    }
 
     /**
      * Add float (can be negative) for editing parent product price
@@ -37,13 +49,13 @@ abstract class ProductVariant implements ProductVariantInterface
     }
 
     /**
-     * Return product variant extra price
+     * Return the parent product
      *
      * @return ProductInterface
      */
-    public function getExtraPrice()
+    public function getParentProduct()
     {
-        return $this->extraPrice;
+        return $this->parentProduct;
     }
 
     /**
@@ -54,16 +66,6 @@ abstract class ProductVariant implements ProductVariantInterface
     public function setParentProduct(ProductInterface $product)
     {
         $this->parentProduct = $product;
-    }
-
-    /**
-     * Return the parent product
-     *
-     * @return ProductInterface
-     */
-    public function getParentProduct()
-    {
-        return $this->parentProduct;
     }
 
 

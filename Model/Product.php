@@ -10,6 +10,7 @@
 namespace Tanna\ProductBundle\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Tanna\ProductBundle\Traits\MultiLanguageNameTrait;
 use Tanna\ProductBundle\Traits\SellableTrait;
 use Tanna\ProductBundle\Traits\SEOTrait;
 use Tanna\ProductBundle\Traits\SluggableTrait;
@@ -24,6 +25,7 @@ use Tanna\ProductBundle\Traits\TracableTrait;
 
 abstract class Product implements ProductInterface
 {
+    use MultiLanguageNameTrait;
     use SluggableTrait;
     use SEOTrait;
     use TracableTrait;
@@ -68,6 +70,15 @@ abstract class Product implements ProductInterface
         }
         return $this;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasVariant(ProductVariantInterface $variant)
+    {
+        return $this->variants->contains($variant);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -78,13 +89,6 @@ abstract class Product implements ProductInterface
             $variant->setParentProduct(null);
         }
         return $this;
-    }
-    /**
-     * {@inheritdoc}
-     */
-    public function hasVariant(ProductVariantInterface $variant)
-    {
-        return $this->variants->contains($variant);
     }
 
 
