@@ -8,7 +8,6 @@ namespace Tanna\ProductBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
-use Tanna\ProductBundle\Model\MultiLanguageInterface;
 
 class MultiTitleValidator extends ConstraintValidator
 {
@@ -23,14 +22,14 @@ class MultiTitleValidator extends ConstraintValidator
      */
     public function validate($class, Constraint $constraint)
     {
-        if (!$class instanceof MultiLanguageInterface) {
-            $this->context->buildViolation($constraint->messageNotInstanceOf)->addViolation();
-        }
-
-        if (empty($class->getNameFr()) && empty($class->getNameEn())) {
-            $this->context->buildViolation($constraint->message)
-                // ->setParameter('%string%', $value)
-                ->addViolation();
-        }
+//        if (!$class instanceof NameableInterface) {
+//            $this->context->buildViolation($constraint->messageNotInstanceOf)->addViolation();
+//        }
+//
+//        if (empty($class->getNameFr()) && empty($class->getNameEn())) {
+//            $this->context->buildViolation($constraint->message)
+//                // ->setParameter('%string%', $value)
+//                ->addViolation();
+//        }
     }
 }

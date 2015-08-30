@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraint;
 class MultiTitle extends Constraint
 {
     public $message = 'You must add at least one title (Any language)';
-    public $messageNotInstanceOf = 'You class is not an instance of MultiLanguageInterface ! Please implement it in your class.';
+    public $messageNotInstanceOf = 'You class is not an instance of NameableInterface ! Please implement it in your class.';
 
     public function validatedBy()
     {
