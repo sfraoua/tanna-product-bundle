@@ -15,6 +15,7 @@ use Tanna\ProductBundle\Traits\SellableTrait;
 use Tanna\ProductBundle\Traits\SEOTrait;
 use Tanna\ProductBundle\Traits\SluggableTrait;
 use Tanna\ProductBundle\Traits\TracableTrait;
+use Tanna\ProductBundle\Traits\TranslatableTrait;
 
 
 /**
@@ -26,6 +27,7 @@ use Tanna\ProductBundle\Traits\TracableTrait;
 abstract class Product implements ProductInterface
 {
     use NameableTrait;
+    use TranslatableTrait;
     use SluggableTrait;
     use SEOTrait;
     use TracableTrait;
