@@ -9,10 +9,10 @@
 
 namespace Tanna\ProductBundle\Model;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Tanna\ProductBundle\Traits\SellableTrait;
 use Tanna\ProductBundle\Traits\SluggableTrait;
 use Tanna\ProductBundle\Traits\TracableTrait;
+use Tanna\ProductBundle\Traits\TranslatableTrait;
 
 
 /**
@@ -34,27 +34,6 @@ abstract class Product implements ProductInterface
     }
 
 
-
-    /**
-     * Return if exists, product variants
-     *
-     * @return null | Collection
-     */
-    public function getVariants()
-    {
-        return $this->variants;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setVariants(Collection $variants)
-    {
-        foreach ($variants as $variant) {
-            $this->addVariant($variant);
-        }
-        return $this;
-    }
     /**
      * {@inheritdoc}
      */
@@ -82,7 +61,6 @@ abstract class Product implements ProductInterface
     {
         if ($this->hasVariant($variant)) {
             $this->variants->removeElement($variant);
-            $variant->setParentProduct(null);
         }
         return $this;
     }

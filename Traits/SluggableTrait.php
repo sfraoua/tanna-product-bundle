@@ -27,6 +27,8 @@ trait SluggableTrait
     public function setSlug($slug)
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
 
