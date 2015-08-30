@@ -7,7 +7,7 @@
 namespace Tanna\ProductBundle\Model;
 
 
-interface ProductVariantInterface extends SellableInterface, TracableInterface, SlugableInterface, SEOInterface, NameableInterface
+interface ProductVariantInterface extends SellableInterface, TracableInterface, SlugableInterface, SEOInterface, NameableInterface, TranslatableInterface
 {
 
     /**
