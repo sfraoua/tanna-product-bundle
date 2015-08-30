@@ -29,7 +29,13 @@ tanna_product_bundle_routing:
 ##Creating Entities / Documents
 You must extend the TannaProductBundle Models.
 
-The product entity/document
+To deal with multi-language websites TannaProduct don't add a translatable properties like name or description...
+The Bundle models implements ``Tanna\ProductBundle\Model\TranslatableInterface``, so when you extend a model, you must 
+implement all the ``TranslatableInterface``methods.
+
+You can put you translation logic in those methods.
+###The product
+
 ```php
     use Tanna\ProductBundle\Model\Product as BaseProduct;
     /**
@@ -38,9 +44,48 @@ The product entity/document
     class Product extends BaseProduct
     {
         protected $id;
+            /**
+             * Deal with you local here and return the product name
+             * @return string
+             */
+            public function getLocaleName()
+            {
+               return 'Translated Product name';
+            }
+        
+            /**
+             *  Deal with you local here and return the product description
+             *
+             * @return string
+             */
+            public function getLocaleDescription()
+            {
+               return 'My product variant description';
+            }
+        
+            /**
+             *  Deal with you local here and return the product variant page title
+             *
+             * @return string
+             */
+            public function getLocalePageTitle()
+            {
+                return 'My product page title';
+            }
+        
+            /**
+             *  Deal with you local here and return the product page meta-description
+             *
+             * @return string
+             */
+            public function getLocaleMetaDescription()
+            {
+                 return 'My product page meta-description';
+            }
     }
 ```
-The product variant entity/document
+
+###The product variant
 ```php
     use Tanna\ProductBundle\Model\ProductVariant as BaseProductVariant;
     /**
@@ -49,6 +94,44 @@ The product variant entity/document
     class ProductVariant extends BaseProductVariant
     {
         protected $id;
+        /**
+                     * Deal with you local here and return the product variant name
+                     * @return string
+                     */
+                    public function getLocaleName()
+                    {
+                       return 'Translated product variant name';
+                    }
+                
+                    /**
+                     *  Deal with you local here and return the product variant description
+                     *
+                     * @return string
+                     */
+                    public function getLocaleDescription()
+                    {
+                       return 'My product variant description';
+                    }
+                
+                    /**
+                     *  Deal with you local here and return the product variant page title
+                     *
+                     * @return string
+                     */
+                    public function getLocalePageTitle()
+                    {
+                        return 'My product variant page title';
+                    }
+                
+                    /**
+                     *  Deal with you local here and return the product variant page meta-description
+                     *
+                     * @return string
+                     */
+                    public function getLocaleMetaDescription()
+                    {
+                         return 'My product variant page meta-description';
+                    }
     }
 ```
 
