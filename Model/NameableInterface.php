@@ -18,11 +18,25 @@ interface NameableInterface
     public function getName();
 
     /**
+     * Set entity name
+     *
+     */
+    public function setName($name);
+
+
+    /**
      * Return entity description
      *
      * @return string
      */
     public function getDescription();
+
+
+    /**
+     * Set entity description
+     *
+     */
+    public function setDescription($description);
 
 
 }

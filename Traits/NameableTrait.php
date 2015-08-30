@@ -24,13 +24,33 @@ trait NameableTrait
     }
 
     /**
+     * Set entity name
+     *
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
      * Return entity name
      *
      * @return string
      */
     public function getDescription()
     {
-        return $this->descriptionFr;
+        return $this->description;
+    }
+
+    /**
+     * Set entity name
+     *
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
     }
 
 
