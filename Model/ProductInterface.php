@@ -13,10 +13,24 @@ interface ProductInterface extends SellableInterface, SlugableInterface, SEOInte
 {
 
     /**
-     * Return if exists, product variants
+     * Add a variant to product variants
      *
      * @return null | Collection
      */
-    public function getVariants();
+    public function addVariant(ProductVariantInterface $variant);
+
+    /**
+     * Check if product has variant
+     *
+     * @return null | Collection
+     */
+    public function hasVariant(ProductVariantInterface $variant);
+
+    /**
+     * Remove variant from product variants
+     *
+     * @return null | Collection
+     */
+    public function removeVariant(ProductVariantInterface $variant);
 
 }
