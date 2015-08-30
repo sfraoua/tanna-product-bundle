@@ -23,14 +23,14 @@ interface TranslatableInterface
      *
      * @return string
      */
-    public function getLocaleDesciption();
+    public function getLocaleDescription();
 
     /**
      * Return a translated meta title
      *
      * @return string
      */
-    public function getLocaleTitle();
+    public function getLocalePageTitle();
 
     /**
      * Return a translated meta description

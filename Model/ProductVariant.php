@@ -9,19 +9,13 @@
 namespace Tanna\ProductBundle\Model;
 
 
-use Tanna\ProductBundle\Traits\NameableTrait;
 use Tanna\ProductBundle\Traits\SellableTrait;
-use Tanna\ProductBundle\Traits\SEOTrait;
 use Tanna\ProductBundle\Traits\SluggableTrait;
 use Tanna\ProductBundle\Traits\TracableTrait;
-use Tanna\ProductBundle\Traits\TranslatableTrait;
 
 abstract class ProductVariant implements ProductVariantInterface
 {
-    use NameableTrait;
-    use TranslatableTrait;
     use SluggableTrait;
-    use SEOTrait;
     use TracableTrait;
     use SellableTrait;
 

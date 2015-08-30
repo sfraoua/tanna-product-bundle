@@ -10,12 +10,9 @@
 namespace Tanna\ProductBundle\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Tanna\ProductBundle\Traits\NameableTrait;
 use Tanna\ProductBundle\Traits\SellableTrait;
-use Tanna\ProductBundle\Traits\SEOTrait;
 use Tanna\ProductBundle\Traits\SluggableTrait;
 use Tanna\ProductBundle\Traits\TracableTrait;
-use Tanna\ProductBundle\Traits\TranslatableTrait;
 
 
 /**
@@ -26,10 +23,7 @@ use Tanna\ProductBundle\Traits\TranslatableTrait;
 
 abstract class Product implements ProductInterface
 {
-    use NameableTrait;
-    use TranslatableTrait;
     use SluggableTrait;
-    use SEOTrait;
     use TracableTrait;
     use SellableTrait;
     protected $variants;
