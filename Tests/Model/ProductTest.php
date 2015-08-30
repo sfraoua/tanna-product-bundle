@@ -13,7 +13,7 @@ class ProductTest extends BaseTest
 {
     public function testTrueHasVariant()
     {
-
+        //test conflict branch some test
         $productVariantMock = $this->getDummyProductVariant();
         $productMock = $this->getDummyProduct();
 
